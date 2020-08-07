@@ -1,0 +1,32 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:textColorHint">@color/offwhite</item>
+
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="LightTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textColorPrimary">@color/white</item>
+
+    </style>
+
+    <!-- remember to add this style -->
+    <style name="Widget.AppTheme.ActionBar" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="search" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:textColorHint">@color/gray</item>
+
+    </style>
+
+</resources>
