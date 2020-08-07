@@ -1,6 +1,7 @@
 package com.example.fitnessapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitnessapp.Activities.ArticleDetailActivity;
 import com.example.fitnessapp.Adapters.NewArticleAdapter;
 import com.example.fitnessapp.Models.Article;
 import com.example.fitnessapp.R;
@@ -51,9 +53,16 @@ public class ArticlesFragment extends Fragment {
         myArticles.add(new Article());
         myArticles.add(new Article());
 
-        NewArticleAdapter articleAdapter = new NewArticleAdapter(myArticles);
+        NewArticleAdapter articleAdapter = new NewArticleAdapter(myArticles, false);
         articles.setAdapter(articleAdapter);
         articles.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
+        articleAdapter.setOnItemClickListener(new NewArticleAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                startActivity(new Intent().setClass(ArticlesFragment.this.getContext(), ArticleDetailActivity.class));
+            }
+        });
 
         articles.addItemDecoration(new DividerItemDecoration(getContext(),
                 DividerItemDecoration.VERTICAL));

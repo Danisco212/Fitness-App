@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -57,6 +58,7 @@ public class MainAppActivity extends AppCompatActivity {
 
     loadHomeFragment();
     bottomNavClicks();
+    navigationItemClick();
 
   }
 
@@ -75,31 +77,38 @@ public class MainAppActivity extends AppCompatActivity {
   }
 
   // setting up the nav click events
-//    private void navigationItemClick(){
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch (item.getItemId()){
-//                    case R.id.home:
-//                        if (!atHome)
-//                            loadHomeFragment();
-//                        break;
-//                    case R.id.articles:
-//                        Toast.makeText(MainAppActivity.this, "Articles buttom", Toast.LENGTH_SHORT).show();
-//                        loadFragment(new ArticlesFragment());
-//                        break;
-//                    case R.id.search:
-//                        break;
-//                    case R.id.trainers:
-//                        break;
-//                    case R.id.profile:
-//                        break;
-//
-//                }
-//                return false;
-//            }
-//        });
-//    }
+    private void navigationItemClick(){
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.slideArticle:
+                      loadFragment(new ArticlesFragment());
+                      setTitle("Articles");
+                      bottomNav.getMenu().getItem(1).setChecked(true);
+                      mDrawer.closeDrawer(GravityCompat.END);
+                      break;
+                    case R.id.slideProfile:
+                      loadFragment(new ProfileFragment());
+                      setTitle("Profile");
+                      bottomNav.getMenu().getItem(4).setChecked(true);
+                      mDrawer.closeDrawer(GravityCompat.END);
+                      break;
+                    case R.id.slideTrainer:
+                      loadFragment(new TrainersFragment());
+                      setTitle("Trainers");
+                      bottomNav.getMenu().getItem(3).setChecked(true);
+                      mDrawer.closeDrawer(GravityCompat.END);
+                      break;
+                    case R.id.settings:
+                      startActivity(new Intent().setClass(MainAppActivity.this, SettingActivity.class));
+                        break;
+
+                }
+                return false;
+            }
+        });
+    }
 
   // setting up the clicks for the bottom nav bar
   private void bottomNavClicks(){

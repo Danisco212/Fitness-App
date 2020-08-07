@@ -15,6 +15,15 @@ import java.util.List;
 public class PopularTrainersAdapter extends RecyclerView.Adapter<PopularTrainersAdapter.PopularTrainersViewHolder> {
 
     private List<Trainer> trainers;
+    public OnItemClickListener onItemClickListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
+    }
 
     public PopularTrainersAdapter(List<Trainer> trainers) {
         this.trainers = trainers;
@@ -27,7 +36,7 @@ public class PopularTrainersAdapter extends RecyclerView.Adapter<PopularTrainers
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.popular_cards, parent, false);
 
-        PopularTrainersViewHolder viewHolder = new PopularTrainersViewHolder(view);
+        PopularTrainersViewHolder viewHolder = new PopularTrainersViewHolder(view, onItemClickListener);
         return viewHolder;
     }
 
@@ -42,8 +51,20 @@ public class PopularTrainersAdapter extends RecyclerView.Adapter<PopularTrainers
     }
 
     public static class PopularTrainersViewHolder extends RecyclerView.ViewHolder{
-        public PopularTrainersViewHolder(@NonNull View itemView) {
+        public PopularTrainersViewHolder(@NonNull View itemView, final OnItemClickListener onItemClickListener) {
             super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        int position = PopularTrainersViewHolder.this.getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            onItemClickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".Fragments.TrainersFragment">
 
     <ScrollView
+        android:background="@drawable/page_top_curve"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -70,6 +71,9 @@
 
             </androidx.core.widget.NestedScrollView>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
 
         </LinearLayout>
 

@@ -16,6 +16,15 @@ public class PersonalTrainersAdapter extends RecyclerView.Adapter<PersonalTraine
 
     private List<Trainer> trainers;
     private String type;
+    public OnItemClickListener onItemClickListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
+    }
 
     public PersonalTrainersAdapter(List<Trainer> trainers, String type) {
         this.trainers = trainers;
@@ -36,7 +45,7 @@ public class PersonalTrainersAdapter extends RecyclerView.Adapter<PersonalTraine
             view= inflater.inflate(R.layout.search_trainer_card, parent, false);
         }
 
-        PersonalTrainersViewHolder viewHolder = new PersonalTrainersViewHolder(view);
+        PersonalTrainersViewHolder viewHolder = new PersonalTrainersViewHolder(view, onItemClickListener);
         return viewHolder;
     }
 
@@ -51,8 +60,20 @@ public class PersonalTrainersAdapter extends RecyclerView.Adapter<PersonalTraine
     }
 
     public static class PersonalTrainersViewHolder extends RecyclerView.ViewHolder{
-        public PersonalTrainersViewHolder(@NonNull View itemView) {
+        public PersonalTrainersViewHolder(@NonNull View itemView, final OnItemClickListener onItemClickListener) {
             super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        int position = PersonalTrainersViewHolder.this.getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            onItemClickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

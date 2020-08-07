@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".Activities.ArticleDetailActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/personal_trainer" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="250dp"
+                    android:text="This is the articles full title"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+
+            <RelativeLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="50dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="50dp"
+                        app:cardCornerRadius="50dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/workout_card"
+                            android:scaleType="fitXY"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/offwhite"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            android:text="Trainer's Name"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/offwhite"
+                            android:textSize="13dp"
+                            android:text="Specialties"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:src="@drawable/ic_save_border_black_24dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_height="50dp"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:src="@drawable/ic_share_black_24dp"
+                        android:layout_height="50dp"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/offwhite"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec varius arcu, nec pulvinar ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer rutrum lobortis tortor. Quisque maximus pretium purus, ac pellentesque odio sagittis vel.\n\n In hac habitasse platea dictumst. Praesent aliquam risus eget pellentesque consequat. Donec iaculis aliquam ultricies. Etiam vehicula mi id leo posuere, eget tristique leo feugiat. Mauris non enim quis dolor faucibus convallis nec ut risus. Morbi porttitor libero sit amet aliquet egestas. Maecenas blandit at massa non iaculis. Donec volutpat erat nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. \n\n Maecenas in turpis orci. Nullam sed luctus turpis. Pellentesque mollis eleifend lacinia. Nam cursus nisl orci, non condimentum risus tincidunt nec. Morbi tempus, massa vitae aliquam semper, mauris nibh vestibulum libero, ac viverra massa mi vel enim. Nunc malesuada, neque sit amet porta ullamcorper, dui mi sagittis est, eu tincidunt nisi justo vel felis. Proin a blandit metus. In vel venenatis tortor. Proin in sem ipsum."/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

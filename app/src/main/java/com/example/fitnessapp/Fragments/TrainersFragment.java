@@ -1,6 +1,7 @@
 package com.example.fitnessapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitnessapp.Activities.TrainerProfileActivity;
 import com.example.fitnessapp.Adapters.NewArticleAdapter;
 import com.example.fitnessapp.Adapters.PersonalTrainersAdapter;
 import com.example.fitnessapp.Decorations.SpaceItemDecoration;
@@ -69,6 +71,12 @@ public class TrainersFragment extends Fragment {
 
     // stories recycler view
     PersonalTrainersAdapter adapter1 = new PersonalTrainersAdapter(trainers, "stories");
+    adapter.setOnItemClickListener(new PersonalTrainersAdapter.OnItemClickListener() {
+      @Override
+      public void onItemClick(int position) {
+        startActivity(new Intent().setClass(TrainersFragment.this.getContext(), TrainerProfileActivity.class));
+      }
+    });
     trainerStories.setAdapter(adapter1);
     trainerStories.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, true));
     trainerStories.addItemDecoration(new StoriesDecoration(20));

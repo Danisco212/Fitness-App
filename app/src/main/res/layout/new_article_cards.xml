@@ -40,7 +40,7 @@
                 android:textColor="@color/white"
                 android:textSize="15dp"
                 android:textStyle="bold"
-                android:text="New Releases"/>
+                android:text="Article shortened title"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,9 +53,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/offwhite"
                 android:textSize="13dp"
-                android:text="New Releases"/>
+                android:text="lorem ip sum is lorem ip sum is lorem ip sum is lorem ip sum islorem ip sum is lorem ip sum is lorem ip sum is "/>
         </LinearLayout>
 
     </LinearLayout>

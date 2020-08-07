@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_map"
+    android:background="@drawable/page_top_curve"
     tools:context=".Fragments.SearchFragment">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
