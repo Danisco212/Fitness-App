@@ -62,13 +62,13 @@ public class TrainersFragment extends Fragment {
     trainers.add(new Trainer());
 
     // online trainers recycler view
-    PersonalTrainersAdapter adapter = new PersonalTrainersAdapter(trainers, false);
+    PersonalTrainersAdapter adapter = new PersonalTrainersAdapter(trainers, "online");
     onlineTrainers.setAdapter(adapter);
     onlineTrainers.setLayoutManager(new LinearLayoutManager(this.getContext()));
     onlineTrainers.addItemDecoration(new SpaceItemDecoration(30));
 
     // stories recycler view
-    PersonalTrainersAdapter adapter1 = new PersonalTrainersAdapter(trainers, true);
+    PersonalTrainersAdapter adapter1 = new PersonalTrainersAdapter(trainers, "stories");
     trainerStories.setAdapter(adapter1);
     trainerStories.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, true));
     trainerStories.addItemDecoration(new StoriesDecoration(20));

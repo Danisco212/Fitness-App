@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.fitnessapp.Fragments.ArticlesFragment;
 import com.example.fitnessapp.Fragments.HomeFragment;
+import com.example.fitnessapp.Fragments.ProfileFragment;
+import com.example.fitnessapp.Fragments.SearchFragment;
 import com.example.fitnessapp.Fragments.TrainersFragment;
 import com.example.fitnessapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -115,12 +117,16 @@ public class MainAppActivity extends AppCompatActivity {
             setTitle("Articles");
             break;
           case R.id.search:
+            loadFragment(new SearchFragment());
+            setTitle("Search");
             break;
           case R.id.trainers:
             loadFragment(new TrainersFragment());
             setTitle("Trainers");
             break;
           case R.id.profile:
+            loadFragment(new ProfileFragment());
+            setTitle("Profile");
             break;
 
         }

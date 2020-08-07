@@ -15,11 +15,11 @@ import java.util.List;
 public class PersonalTrainersAdapter extends RecyclerView.Adapter<PersonalTrainersAdapter.PersonalTrainersViewHolder> {
 
     private List<Trainer> trainers;
-    private boolean isStory;
+    private String type;
 
-    public PersonalTrainersAdapter(List<Trainer> trainers, boolean isStory) {
+    public PersonalTrainersAdapter(List<Trainer> trainers, String type) {
         this.trainers = trainers;
-        this.isStory = isStory;
+        this.type = type;
     }
 
     @NonNull
@@ -28,10 +28,12 @@ public class PersonalTrainersAdapter extends RecyclerView.Adapter<PersonalTraine
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view;
-        if (!isStory){
+        if (type.equals("online")){
              view= inflater.inflate(R.layout.online_trainer_cards, parent, false);
-        }else{
+        }else if (type.equals("stories")){
             view= inflater.inflate(R.layout.trainer_stories, parent, false);
+        }else{
+            view= inflater.inflate(R.layout.search_trainer_card, parent, false);
         }
 
         PersonalTrainersViewHolder viewHolder = new PersonalTrainersViewHolder(view);
